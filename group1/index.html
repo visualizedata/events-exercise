@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Timeline | Basic demo</title>
+
+  <style type="text/css">
+    body, html {
+      font-family: sans-serif;
+    }
+   
+  </style>
+  <script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
+  <script type="text/javascript" src="../../node_modules/vis/dist/vis.js"></script>
+  <!----script type="text/javascript" src="../../node_modules/vis/dist/functions.js"></script--> 
+  <link href="vis.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <h1>Group 1's Data Visualization Events Timeline</h1>
+  <div id="meetups">
+    <h2>Meetups</h2>
+  </div>
+    <h2>Conferences, Exhibitions, Talks</h2>
+  
+  <div id="visualization">
+  
+  </div>
+<script type="text/javascript">
+  // DOM element where the Timeline will be attached
+  var container = document.getElementById('visualization');
+  var eventsArray = [{"startDate":"10/1/2017","endDate":"10/6/2017","name":"IEEE VIS","type":"conference","location":"Phoenix, AZ","url":"http://ieeevis.org/"},{"startDate":"9/20/2017","name":"Johanna Drucker: Visualization and Knowledge: Modelling, Discovery, Display","type":"talk","location":"University Center, 63 Fifth Avenue, UL105","url":"http://blogs.newschool.edu/integrative-phd/event/johanna-drucker/","notes":"6:00pm"},{"startDate":"10/12/2017","name":"Visual Trumpery, Alberto Cairo","type":"talk","location":"The Auditorium, Alvin Johnson/J.M. Kaplan Hall, 66 West 12th Street","url":"https://visualtrumperytour.wordpress.com/","notes":"8:00pm"},{"startDate":"6/26/2017","endDate":"6/29/2017","name":"Eyeo Festival","type":"conference","location":"Minneapolis, MN","url":"http://eyeofestival.com/"},{"startDate":"9/23/2017","endDate":"9/24/2017","name":"World Maker Faire","type":"exhibition","location":"New York, NY","url":"http://makerfaire.com"},{"startDate":"4/22/2017","name":"See: The Conference for Visualization of Information","type":"conference","location":"Wiesbaden, Germany","url":"https://www.see-conference.org"},{"startDate":"10/6/2017","endDate":"10/7/2017","name":"PyGotham","type":"conference","location":"New York, NY","url":"https://2017.pygotham.org/"},{"startDate":"10/20/2017","endDate":"10/21/2017","name":"push.conference","type":"conference","location":"Munich","url":"http://push-conference.com/2017/"},{"startDate":"4/24/2017","endDate":"4/25/2017","name":"OPENVIS CONF","type":"conference","location":"Boston, MA","url":"https://openvisconf.com/"},{"startDate":"5/6/2017","endDate":"5/11/2017","name":"ACM CHI Conference on Human Factors in Computing Systems","type":"conference","location":"Denver, CO","url":"https://chi2017.acm.org/"},{"startDate":"6/12/2017","endDate":"6/16/2017","name":"EuroVis","type":"conference","location":"Barcelona","url":"http://eurovis2017.virvig.es/"},{"startDate":"6/20/2017","endDate":"6/21/2017","name":"MongoDB World","type":"conference","location":"Chicago, IL","url":"https://www.mongodb.com/world17"},{"startDate":"7/6/2017","endDate":"7/7/2017","name":"xCoAx","type":"conference","location":"Lisbon, Portugal","url":"http://xcoax.org/","focus":"xCoAx is an exploration of the intersection where computational tools and media meet art and culture, in the form of a multi-disciplinary enquiry on aesthetics, computation, communication and the elusive X factor that connects them all."},{"startDate":"7/10/2017","endDate":"7/16/2017","name":"SciPy","type":"conference","location":"Austin, TX","url":"http://conference.scipy.org/"},{"startDate":"7/30/2017","endDate":"8/3/2017","name":"SIGGRAPH","type":"conference","location":"Los Angeles, CA","url":"http://s2017.siggraph.org/"},{"name":"NYC D3.js","type":"meetup","location":"New York, NY","url":"http://www.meetup.com/NYC-D3-JS/","focus":"D3 JavaScript library"},{"name":"Data Visualization New York","type":"meetup","location":"New York, NY","url":"https://www.meetup.com/DataVisualization/","focus":"data visualization"},{"name":"The NYC Data Skeptics Meetup","type":"meetup","location":"New York, NY","url":"https://www.meetup.com/The-NYC-Data-Skeptics-Meetup/","focus":"mathematical, ethical, and business aspects of data from a skeptical perspective"}];
+  var cleanEvents = [];
+  var groups = [{id:1, content:"School"},{id:2, content:"NY"},{id:3, content:"Outside Of NY"}];
+
+
+  function hasNumbers(str)
+      {
+      var regex = /\d/g;
+      return regex.test(str);
+      }   
+
+function findLocationCategory(str){
+    var loc = 3;
+    var ny = str.search("NY")
+    var us = str.search("AK","AL","AR","AZ","CA","CO","CT","DE","FL","GA","HI","IA","ID","IL","IN","KS","KY","LA","MA","MD","ME","MI","MN","MO","MS","MT","NC","ND","NE","NH","NJ","NM","NV","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VA","VT","WA","WI","WV","WY")
+    var university = hasNumbers(str);
+    
+    /*
+    var tf_ny = false;
+    var tf_us = false;
+    var tf_university = false;
+    var tf_world = false;  
+    */
+    
+    if (ny > -1) { loc = 2};
+    if (us > -1) { loc = 3};
+    /*if (univeristy) {loc = 1};*/
+    if (hasNumbers(str)) { loc = 1};
+       
+   return loc;
+  }
+  
+  function populateCleanEvents(){
+    for (var i=0; i<eventsArray.length; i++){
+      //cases for events that have both start and end dates
+      if (eventsArray[i].hasOwnProperty("startDate") && eventsArray[i].hasOwnProperty("endDate")){
+        cleanEvents.push({id:i+1, start:eventsArray[i].startDate, content:eventsArray[i].name, group:findLocationCategory(eventsArray[i].location), end:eventsArray[i].endDate})
+      
+        //cases for events that have only a start date
+      } else if (eventsArray[i].hasOwnProperty("startDate")) {
+		    cleanEvents.push({id:i+1, start:eventsArray[i].startDate, content:eventsArray[i].name,group:findLocationCategory(eventsArray[i].location),end:eventsArray[i].startDate})
+		  }
+    }
+  }
+  
+  function addElement(eventName, el) {
+	var newDiv = document.createElement(el);
+	var newContent = document.createTextNode(eventName);
+	newDiv.appendChild(newContent);
+	document.getElementById("meetups").appendChild(newDiv);
+}
+  
+  function viewMeetupTitles() {
+	for (var i=0; i < eventsArray.length; i++) {
+		if (!eventsArray[i].hasOwnProperty("startDate")){
+		addElement(eventsArray[i].name, "p")
+	  }
+	}
+}
+
+  function main(){
+    
+    populateCleanEvents();
+    // Create a DataSet (allows two way data-binding)
+    var items = new vis.DataSet(cleanEvents);
+
+
+    // Configuration for the Timeline
+    var options = {autoResize: true};
+   
+    // Create a Timeline
+    var timeline = new vis.Timeline(container, items, options, groups);
+    
+    var findLCResult = findLocationCategory("Milwaukee, WI")
+    
+    $('.dl_test').append('Test of findLocationCategory <br>');
+    
+    viewMeetupTitles();
+    /*findLocationCategory(str)*/
+  }
+main()
+</script>
+</body>
+</html>
