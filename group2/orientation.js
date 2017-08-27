@@ -3,35 +3,51 @@ var eventsArray = [{"startDate":"10/1/2017","endDate":"10/6/2017","name":"IEEE V
 var variablelist = []
 var data = []
 
+function dd(dt) {
+    d = new Date(dt)
+    return d.getDate()
+};
+
+function mm(dt) {
+    m = new Date(dt)
+    return m.getMonth()
+};
+
+function yyyy(dt) {
+    y = new Date(dt)
+    return y.getFullYear()
+};
+
 for(i=0;i<eventsArray.length;i++) {
-    variablelist[i] = eventsArray[i]["name"]
-    variab = variablelist[i]
+    variablelist[i] = eventsArray[i]["name"];
+    variab = variablelist[i];
+    var today = new Date();
+    var todaydate = new Date(yyyy(today),mm(today),dd(today));
+    var eventdtstr = eventsArray[i]["startDate"];
+    var eventdate = new Date(yyyy(eventdtstr),mm(eventdtstr),dd(eventdtstr));
+    var eventtime = eventdate.getTime()
+    var todaytime = todaydate.getTime()
+    var timediff = (eventtime - todaytime)/(1000*60*60*24)
     var variab = {
-        x: [i], //this should be time (days) from now
+        x: [timediff], //this should be time (days) from now
         y: [i], //distance from me now
         mode: "markers",
         type: "scatter",
         name: eventsArray[i]["name"],
-        text: [eventsArray[i]["name"]],
+        text: [eventsArray[i]["startDate"]],
         marker: { size: 12 }
     };
     data[i] = variab
     var layout = { 
         showlegend: false,
         xaxis: {
-        range: [ -0.5, 17.5 ] 
+        range: [ -200, 200 ] 
     },
         yaxis: {
         range: [-0.5, 17.5]
     },
-    title:'please work please work'
+    title:'Events Scatter Plot'
   };
 };
 
-var today = new Date();
-var testdate = eventsArray[0]["endDate"]
-var dd = today.getDate()
-var mm = today.getMonth()+1
-var yyyy = today.getFullYear()
-var currentdate = mm + '/' + dd + '/' + yyyy
 //Plotly.newPlot('myDiv', data, layout);
