@@ -1,0 +1,155 @@
+body {
+    font-family: 'Inconsolata', monospace;
+}
+
+p {
+    font-family: 'Inconsolata', monospace;
+    font-size:1em;
+    margin:1%;
+}
+
+h1 {
+    font-family: 'Inconsolata', monospace;
+    font-size: 2em;
+}
+
+h2 {
+    font-family: 'Inconsolata', monospace;
+    font-size: 1.5em;
+}
+
+a {
+    cursor:pointer;
+}
+
+.box {
+    border: 2px solid black;
+    margin: 2%;
+    width:90%;
+    height: 40px;
+    padding:1%;
+}
+
+.legendTitle {
+    width:30%;
+    float:left;
+    position:relative;
+    height:100%;
+    padding-top:1%;
+    padding-bottom:1%;
+}
+
+.title{
+    margin:2%;
+}
+
+.type {
+    cursor:pointer;
+    width:10%;
+    height:100%;
+    float:right;
+    position:relative;
+    padding-left:7%;
+    margin-top:-0.5%;
+    padding-right:3%;
+    border-left:1px solid white;
+    padding-bottom:1%;
+    background-color:black;
+    color: white;
+    transition: background-color 2s;
+}
+
+.type:hover {
+    background-color:#666666;
+}
+
+.events {
+    width:3.33%;
+    height:10%;
+    /*background-color:black;*/
+    position:absolute;
+    float:left;
+    z-index:10;
+    cursor:pointer;
+    /*display:none;*/
+}
+
+.icon {
+    width:10%;
+}
+
+.container {
+    position:absolute;
+    left:25%;
+    top:25%;
+    width:50%;
+    height:50%;
+    background-color:red;
+}
+
+.container p {
+    margin:5%;
+}
+
+#legend {
+    background-color:black;
+    color: white;
+}
+#sketch-holder {
+    margin:auto;
+    width:700px;
+    height: 288px;
+    background-color: #CCCFBC;
+    z-index:2;
+    position:relative;
+}
+
+#event1 {
+    top:15%;
+    left:36.5%;
+}
+
+#event2 {
+    top:13%;
+    left:45.5%;
+}
+
+#event3 {
+    top:18%;
+    left:54.5%;
+}
+
+#event4 {
+    top:49%;
+    left:35.5%;
+}
+
+#event5 {
+    top:54%;
+    left:44.5%;
+}
+
+#event6 {
+    top:55%;
+    left:53.5%;
+}
+
+#event7 {
+    top:83%;
+    left:36%;
+}
+
+#event8 {
+    top:85%;
+    left:46%;
+}
+
+#event9 {
+    top:75%;
+    left:54%;
+}
+
+#eventdetail1 {
+    display:none;
+    z-index:0;
+}
