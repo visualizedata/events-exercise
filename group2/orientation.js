@@ -18,6 +18,9 @@ function yyyy(dt) {
     return y.getFullYear()
 };
 
+nodate = []
+
+
 for(i=0;i<eventsArray.length;i++) {
     variablelist[i] = eventsArray[i]["name"];
     variab = variablelist[i];
@@ -30,7 +33,7 @@ for(i=0;i<eventsArray.length;i++) {
     var timediff = (eventtime - todaytime)/(1000*60*60*24)
     var variab = {
         x: [timediff], //this should be time (days) from now
-        y: [i], //distance from me now
+        y: [lat[i]], //distance from me now
         mode: "markers",
         type: "scatter",
         name: eventsArray[i]["name"],
