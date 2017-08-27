@@ -1,0 +1,68 @@
+name: "IEEE VIS",
+startDate: "10/1/2017",
+https://maps.googleapis.com/maps/api/staticmap?center=Phoenix+AZ&zoom12&size=600x600
+
+name: "Johanna Drucker: Visualization and Knowledge: Modelling, Discovery, Display",
+startDate: "9/20/2017”,
+https://maps.googleapis.com/maps/api/staticmap?center=University+Center+63 Fifth+Avenue&zoom12&size=600x600
+
+name: "Visual Trumpery, Alberto Cairo",
+startDate: "10/12/2017",
+https://maps.googleapis.com/maps/api/staticmap?center=66+West+12th+Street&zoom12&size=600x600
+
+name: "Eyeo Festival",
+startDate: "6/26/2017",
+next date: No information for 2018 but please stay tuned
+https://maps.googleapis.com/maps/api/staticmap?center=Minneapolis+MN&zoom12&size=600x600
+
+name: "World Maker Faire",
+startDate: "9/23/2017",
+https://maps.googleapis.com/maps/api/staticmap?center=New York+NY&zoom12&size=600x600
+
+name: "See: The Conference for Visualization of Information",
+startDate: "4/22/2017",
+next date: No information for 2018 but please stay tuned
+https://maps.googleapis.com/maps/api/staticmap?center=Wiesbaden&zoom12&size=600x600
+
+name: "PyGotham",
+startDate: "10/6/2017",
+https://maps.googleapis.com/maps/api/staticmap?center=New York, NY&zoom12&size=600x600
+
+name: "push.conference",
+startDate: "10/20/2017",
+https://maps.googleapis.com/maps/api/staticmap?center=Munich&zoom12&size=600x600
+
+name: "OPENVIS CONF",
+startDate: "4/24/2017",
+next date: No information for 2018 but please stay tuned
+https://maps.googleapis.com/maps/api/staticmap?center= Boston+MA&zoom12&size=600x600
+
+name: "ACM CHI Conference on Human Factors in Computing Systems",
+startDate: "5/6/2017",
+next date: 4/21/2018
+https://maps.googleapis.com/maps/api/staticmap?center= Denver+CO&zoom12&size=600x600
+
+name: "EuroVis",
+startDate: "6/12/2017",
+next date: 6/4/2018
+https://maps.googleapis.com/maps/api/staticmap?center= Barcelona&zoom12&size=600x600
+
+name: "MongoDB World",
+startDate: "6/20/2017",
+next date: No information for 2018 but please stay tuned
+https://maps.googleapis.com/maps/api/staticmap?center= Chicago+IL&zoom12&size=600x600
+
+name: "xCoAx",
+startDate: "7/6/2017",
+next date: 7/8/2018
+https://maps.googleapis.com/maps/api/staticmap?center= Lisbon+Portugal&zoom12&size=600x600
+
+name: "SciPy",
+startDate: "7/10/2017",
+next date: 7/11/2018
+https://maps.googleapis.com/maps/api/staticmap?center= Austin+TX&zoom12&size=600x600
+
+name: "SIGGRAPH",
+startDate: "7/30/2017",
+next date: 8/12/2018
+https://maps.googleapis.com/maps/api/staticmap?center= Los Angeles+CA&zoom12&size=600x600

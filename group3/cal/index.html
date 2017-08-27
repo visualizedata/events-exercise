@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+    <title>CLNDR Demo</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/clndr.css">
+  
+
+</head>
+<body>
+    <!--<div class="dialogBox" style="border:1px solid gray;">-->
+    <!--    <a href="/" class="exampleLink">Test</a>-->
+        <!-- TODO: Change above href -->
+        <!-- NOTE: Must be a local url, not cross domain -->
+    <!--</div>-->
+
+    <!--<a class="simple-ajax-popup" href="https://google.com" >Load another content via ajax</a>-->
+    <!--<a id="info-modall" href="info-pages/2017-04-22.html" rel="modal:open" style="display:none;">example</a>-->
+    <!--<a id="modal-info" href="info-pages/2017-04-22.html" rel="modal:open">example</a>-->
+
+    <div id="modal-info" style="display:none;">
+        <iframe id="info-pages" width="450" height="300"></iframe>
+    </div>
+
+    <!-- Link to open the modal -->
+    <!--<p><a href="#modal-info" rel="modal:open">Open Modal</a></p>-->
+
+
+    <div class="container" style="display: inline;" >
+        <div class="cal1" style="display: inline;" ></div>
+        <!--<iframe id="info-pages" style="display: inline;" ></iframe>-->
+    </div>
+
+    <script src="http://dimsemenov.com/plugins/magnific-popup/dist/jquery.magnific-popup.min.js?v=1.1.0"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+
+    <script src="CLNDR/src/clndr.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.8.2/jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.8.2/jquery.modal.css" type="text/css" media="screen" />
+
+    <script src="filesaver.js"></script>
+    <script src="ics.js"></script>
+
+    <script src="demo.js"></script>
+    
+    <a id="calDl" href="javascript:cal.download('event.ics')"  target="_blank">Add to My Calendar</a>
+
+    <script>
+      var cal = ics();
+      $("#calDl").hide();
+    </script>
+
+</body>
+</html>
